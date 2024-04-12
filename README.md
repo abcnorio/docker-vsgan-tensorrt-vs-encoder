@@ -17,7 +17,7 @@ Please read the original documentation on the pages cited above. Important is th
 ## Build and run
 ```bash
 docker build -t vsgan-tensorrt .
- docker run -it --rm -v /path/on/host:/path/to/mount/on/container vsgan-tensorrt
+docker run -it --rm -v /path/on/host:/path/to/mount/on/container vsgan-tensorrt
 ```
 
 ## License:
