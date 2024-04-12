@@ -1,0 +1,12 @@
+# https://bitbucket.org/mystery_keeper/vapoursynth-editor
+
+# do this after mkvtoolnix build
+# pre
+apt-get install build-essential qtbase5-dev qt5-default
+
+ENV QT5BINPATH=/
+
+RUN git clone git clone https://bitbucket.org/mystery_keeper/vapoursynth-editor.git && \
+    qmake -norecursive pro.pro CONFIG+=release && \
+    make -j$(nproc) && \
+    make install

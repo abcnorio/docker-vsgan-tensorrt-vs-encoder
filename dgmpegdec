@@ -1,0 +1,12 @@
+# prepare env for dgmpegdec
+RUN apt-get install wine wine32 7z -y && \
+    mkdir /wine && \
+    cd /wine && \
+    wget -O dgmpgdec3000.zip https://www.rationalqm.us/dgmpgdec/dgmpgdec3000.zip && \
+    7z e dgmpgdec3000.zip && rm dgmpgdec3000.zip && \
+    echo "export 'PATH=$PATH:/wine/dgmpegdec3000'" > /etc/profile.d/env.sh
+RUN apt-get remove 7z -y && apt autoremove -y
+
+
+
+
