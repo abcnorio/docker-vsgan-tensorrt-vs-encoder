@@ -3,7 +3,7 @@ Fork of vsgan tensorrt (Dockerfile) with some addons (vs plugins, av tools) and 
 
 ## Original repos
 - vsgan tensorrt docker https://github.com/styler00dollar/VSGAN-tensorrt-docker (BSD 3-Clause License)
-- vapoursynth encoder https://git.gammaspectra.live/WeebDataHoarder/encoder (MIT License)
+- vapoursynth encoder docker https://git.gammaspectra.live/WeebDataHoarder/encoder (MIT License)
 - added vs plugins https://github.com/abcnorio/docker-vapoursynth-encoder (MIT License)
 
 ## Build environment:
