@@ -6,6 +6,9 @@ Fork of vsgan tensorrt (Dockerfile) with some addons (vs plugins, av tools) and 
 - vapoursynth encoder docker https://git.gammaspectra.live/WeebDataHoarder/encoder (MIT License)
 - added vs plugins https://github.com/abcnorio/docker-vapoursynth-encoder (MIT License)
 
+## What is?
+Please read the original documentation on the pages cited above. Important is the page about VSGAN, TensorRT, and vapoursynth and its handling. The other repo is about a vapoursynth environment along with av tools, and last one just adds some more vapousynth plugins, esp. important for deinterlacing, etc.
+
 ## Build environment:
 - Debian bullseye (11.9)
 - kernel 5.18.0-0.deb11.4-amd64
