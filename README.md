@@ -21,5 +21,5 @@ docker run -it --rm -v /path/on/host:/path/to/mount/on/container vsgan-tensorrt
 ```
 
 ## License:
-- mix of BSD-3 and MIT (respective code parts)
+- mix of BSD-3 and MIT (see respective code parts)
 - whatever was added in the sense of "newly added" and requires a licence (GPL >=3)
