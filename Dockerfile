@@ -1,7 +1,9 @@
 # original urls:
 #
-#
-#
+# vsgan tensorrt docker https://github.com/styler00dollar/VSGAN-tensorrt-docker (BSD 3-Clause License)
+# vapoursynth encoder (git-shallow, build of qt5 static and mkvtoolnix) https://git.gammaspectra.live/WeebDataHoarder/encoder (MIT License)
+# added vs plugins https://github.com/abcnorio/docker-vapoursynth-encoder (MIT License)
+
 
 ############################
 # FFMPEG
