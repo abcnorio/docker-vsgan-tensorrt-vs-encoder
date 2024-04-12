@@ -7,7 +7,7 @@ Fork of vsgan tensorrt (Dockerfile) with some addons (vs plugins, av tools) and 
 - added vs plugins https://github.com/abcnorio/docker-vapoursynth-encoder (MIT License)
 
 ## What is?
-Please read the original documentation on the pages cited above. Important is the page about VSGAN, TensorRT, and vapoursynth and its handling. The other repo is about a vapoursynth environment along with av tools, and last one just adds some more vapousynth plugins, esp. important for deinterlacing, etc.
+Please read the original documentation on the pages cited above. Important is the page about VSGAN, TensorRT, vapoursynth and its handling. The other repo is about a vapoursynth environment along with av tools, and the last one just adds some more vapousynth plugins, esp. important for deinterlacing, etc.
 
 ## Build environment:
 - Debian bullseye (11.9)
