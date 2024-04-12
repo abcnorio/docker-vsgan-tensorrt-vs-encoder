@@ -14,7 +14,7 @@ Fork of vsgan tensorrt (Dockerfile) with some addons (vs plugins, av tools) and 
 ## Build and run
 ```bash
 docker build -t vsgan-tensorrt .
-docker run -it --rm -v /path/to/mount/on/container:/mnt vsgan-tensorrt
+ docker run -it --rm -v /path/on/host:/path/to/mount/on/container vsgan-tensorrt
 ```
 
 ## License:
