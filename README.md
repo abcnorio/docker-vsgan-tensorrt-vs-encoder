@@ -19,7 +19,6 @@ Please read the original documentation on the pages cited above. Important is th
 docker build -t vsgan-tensorrt .
 docker run -it --rm -v /path/on/host:/path/to/mount/on/container vsgan-tensorrt
 ```
-
 ## License:
 - mix of BSD-3 and MIT (see respective code parts)
 - whatever was added in the sense of "newly added" and requires a licence (GPL >=3)
