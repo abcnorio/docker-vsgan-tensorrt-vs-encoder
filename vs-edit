@@ -1,7 +1,8 @@
 # https://bitbucket.org/mystery_keeper/vapoursynth-editor
 # https://github.com/YomikoR/VapourSynth-Editor.git
 
-# do this after mkvtoolnix build
+# vs-edit
+# do this directly after mkvtoolnix build
 # pre
 apt-get install build-essential qtbase5-dev qt5-default
 
@@ -11,3 +12,19 @@ RUN git clone git clone https://bitbucket.org/mystery_keeper/vapoursynth-editor.
     qmake -norecursive pro.pro CONFIG+=release && \
     make -j$(nproc) && \
     make install
+
+
+# for final image
+# vsmpeg
+RUN git clone https://github.com/PantherNuru/VSMPEG.git && cd VSMPEG && \
+    apt-get install python3-pip -y && pip -r install requirements.txt -y && \
+    mkdir /vs-edit && mv /VSMPEG/smpeg.vpy /vs-edit/ && \
+    rm -rf /VSMPEG
+
+COPY from=base /PATH-TO-VSEDIT /DEST-PATH/
+
+
+
+
+
+
