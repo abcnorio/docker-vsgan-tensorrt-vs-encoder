@@ -21,7 +21,7 @@ docker run -it --rm -v /path/on/host:/path/to/mount/on/container vsgan-tensorrt
 ```
 
 ## TODO list
-- add the encoders/ tools from the additional-encoder file
+- add the encoders/ tools/ vs plugins from the additional-encoder file
 - add vs-edit (https://bitbucket.org/mystery_keeper/vapoursynth-editor), a IDE for vapoursynth scripts, requires qt5, so build it along with mkvtoolnix env (qt5 static), see also thread on doom9 (https://forum.doom9.org/showthread.php?t=170965)
 - add VSMPEG (https://github.com/PantherNuru/VSMPEG.git)
 - add DGMPGDec (https://www.rationalqm.us/dgmpgdec/dgmpgdec.html) along with wine, the best (fast, accurate) mpeg1/2 decoder and frameserver
