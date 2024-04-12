@@ -124,3 +124,15 @@ RUN git clone https://github.com/mpeg5/xeve.git && \
       -DCMAKE_INSTALL_PREFIX:PATH=/usr/local && \
     make -j$(nproc) && make install
 
+
+
+
+# final image
+COPY --from=base \
+    /usr/local/bin/XXX \
+    /usr/local/bin/XXX \
+    /usr/local/bin/XXX \
+    /usr/local/bin/XXX \
+    /usr/local/bin/XXX \
+    /usr/local/bin/
+

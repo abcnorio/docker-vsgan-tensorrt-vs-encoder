@@ -20,7 +20,7 @@ RUN git clone https://github.com/HomeOfVapourSynthEvolution/VapourSynth-TCanny.g
     cp ./build/XXX /usr/local/lib/vapoursynth/
 
 
-COPY from=base /usr/local/lib/vapoursynth/XXX \
+COPY --from=base /usr/local/lib/vapoursynth/XXX \
     /usr/local/lib/vapoursynth/XXX \
     /usr/local/lib/vapoursynth/XXX \
     /usr/local/lib/vapoursynth/
