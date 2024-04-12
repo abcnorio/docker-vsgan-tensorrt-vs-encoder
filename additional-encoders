@@ -1,0 +1,126 @@
+# TODO - further encoders, ideas and cmake optimizations taken from weebdatahoarder repo
+
+# ALREADY PRESENT - x265
+# https://bitbucket.org/multicoreware/x265_git.git
+
+
+# ALREADY PRESENT - x264
+# https://code.videolan.org/videolan/x264.git
+
+
+# uvg266 + 10bit
+# https://github.com/ultravideo/uvg266.git
+RUN git clone https://github.com/ultravideo/uvg266.git && \
+    cd build && \
+    cmake .. \
+      -DGIT_SUBMODULE=OFF \
+      -DBUILD_SHARED_LIBS=OFF \
+      -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON \
+      -DCMAKE_BUILD_TYPE=Release \
+      -D CMAKE_INSTALL_PREFIX:PATH=/usr/local \
+       # 10 bit - build twice!
+      -DUVG_BIT_DEPTH=10 && \
+    make -j$(nproc) && make install
+
+
+# vvenc
+# https://github.com/fraunhoferhhi/vvenc.git
+RUN git clone https://github.com/fraunhoferhhi/vvenc.git && \
+    cd vvenc && mkdir build && cd build && \
+    cmake .. \
+      -DVVENC_ENABLE_X86_SIMD=ON \
+      -DBUILD_SHARED_LIBS=OFF \
+      -DVVENC_ENABLE_LINK_TIME_OPT=ON \
+      -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON \
+      -DCMAKE_BUILD_TYPE=Release \
+      -D CMAKE_INSTALL_PREFIX:PATH=/usr/local && \
+    #cmake --build
+    #make install-release
+    make -j$(nproc) && make install
+
+
+# ALREADY PRESENT - aom
+# https://aomedia.googlesource.com/aom.git
+
+
+# ALREADY PRESENT - vmaf
+# https://github.com/Netflix/vmaf.git
+
+
+# brotli
+# https://github.com/google/brotli.git
+RUN git clone https://github.com/Microsoft/vcpkg.git && \
+    #cd vcpkg 
+    #./bootstrap-vcpkg.sh
+    #./vcpkg integrate install
+    #./vcpkg install brotli
+    mkdir out && cd out && \
+    cmake .. \
+      -DCMAKE_BUILD_TYPE=Release \
+      #-DCMAKE_INSTALL_PREFIX=./installed \
+      -DCMAKE_INSTALL_PREFIX:PATH=/usr/local \
+      -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON \
+      -DBUILD_SHARED_LIBS=OFF \
+      -DBROTLI_DISABLE_TESTS=ON && \
+    #cmake --build . --config Release --target install
+    make -j$(nproc) && make install
+
+
+# libjxl
+# https://github.com/libjxl/libjxl.git
+RUN apt install cmake pkg-config libbrotli-dev -y
+# for other formats:
+RUN apt install libgif-dev libjpeg-dev libopenexr-dev libpng-dev libwebp-dev -y
+# compiler
+RUN apt install clang -y && \
+    export CC=clang CXX=clang++
+RUN git clone https://github.com/libjxl/libjxl.git --recursive --shallow-submodules && \
+    cd libjxl && mkdir build && cd build && \
+    cmake .. \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DBUILD_TESTING=OFF #=0 \
+      -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON \
+      -DBUILD_SHARED_LIBS=OFF \
+      -DCMAKE_INSTALL_PREFIX:PATH=/usr/local \
+      -DJPEGXL_ENABLE_FUZZERS=0 \
+      -DJPEGXL_ENABLE_TOOLS=0 \
+      -DJPEGXL_ENABLE_DOXYGEN=0 \
+      -DJPEGXL_ENABLE_MANPAGES=0 \
+      -DJPEGXL_ENABLE_BENCHMARK=0 \
+      -DJPEGXL_ENABLE_EXAMPLES=0 \
+      -DJPEGXL_BUNDLE_LIBPNG=1 \
+      -DJPEGXL_ENABLE_JNI=0 \
+      -DJPEGXL_ENABLE_SKCMS=1 \
+      -DJPEGXL_BUNDLE_SKCMS=1 \
+      -DJPEGXL_STATIC=1 && \
+    #cmake --build . -- -j$(nproc)
+    #cmake --install .
+    make -j$(nproc) && make install
+
+
+# ALREADY PRESENT - svt-av1
+https://gitlab.com/AOMediaCodec/SVT-AV1.git
+
+
+# ALREADY PRESENT - rav1e
+https://github.com/xiph/rav1e.git
+
+
+# ALREADY PRESENT - fdk-aac
+https://github.com/mstorsjo/fdk-aac.git
+
+
+# xeve
+# https://github.com/mpeg5/xeve.git
+RUN git clone https://github.com/mpeg5/xeve.git && \
+    mkdir build && cd build && \
+    cmake .. \
+      #-DSET_PROF=BASE \
+      -DSET_PROF="${1}" \
+      -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DBUILD_SHARED_LIBS=OFF \
+      -DXEVE_APP_STATIC_BUILD=ON \
+      -DCMAKE_INSTALL_PREFIX:PATH=/usr/local && \
+    make -j$(nproc) && make install
+
