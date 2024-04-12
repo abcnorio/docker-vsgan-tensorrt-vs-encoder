@@ -1,0 +1,16 @@
+# more vs plugins
+
+# Retinex
+# https://github.com/HomeOfVapourSynthEvolution/VapourSynth-Retinex
+RUN git clone https://github.com/HomeOfVapourSynthEvolution/VapourSynth-Retinex.git && \
+    cd VapourSynth-Retinex && \
+    meson build && ninja -C build && \
+    cp ./build/ /usr/local/lib/vapoursynth/
+
+# qdn3d
+RUN git clone https://github.com/Hinterwaeldlers/vapoursynth-hqdn3d.git && \
+    cd vapoursynth-hqdn3d && \
+    ./autogen.sh && ./configure --prefix=/usr/local && make -j$(nproc) && \
+    cp ./ /usr/local/lib/vapoursynth/
+
+
